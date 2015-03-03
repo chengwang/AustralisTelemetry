@@ -46,6 +46,8 @@ def map(k, d, v, cx):
     
     if (not 'toolbars'  in ui and not "menuBarEnabled" in ui["toolbars"]): #remove weird incomplete cases
       return
+    else:
+        toolbars = ui["toolbars"]
     countableEvents = toolbars.get("countableEvents", {})
     feature_measures = {}
     #note: simple swaps in "kept"
