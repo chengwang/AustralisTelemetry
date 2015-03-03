@@ -43,9 +43,8 @@ def map(k, d, v, cx):
     s_prefix = prefix.encode('utf-8')   
 
     tour_seen = "none"
-
-    toolbars = ui["toolbars"] 
-    if not "menuBarEnabled" in toolbars: #remove weird incomplete cases
+    
+    if (not 'toolbars'  in ui and not "menuBarEnabled" in ui["toolbars"]): #remove weird incomplete cases
       return
     countableEvents = toolbars.get("countableEvents", {})
     feature_measures = {}

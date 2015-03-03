@@ -15,6 +15,7 @@ osinfo,item,distribution,n in os
 
 import re, ast, json
 from collections import defaultdict
+import codecs 
 
 def process_output(infile, outfile):
 	from collections import defaultdict
@@ -27,7 +28,7 @@ def process_output(infile, outfile):
 
 	#iterate through file once to get os counts so that we append these to rows in final output
 	
-	filecontents = open(infile)
+	filecontents = codecs.open(infile, encoding='utf-8')
 	for line in filecontents:
 		if line.startswith("ERROR"):
 			continue
@@ -47,7 +48,7 @@ def process_output(infile, outfile):
 	filecontents.close()
 		
 
-	with open(outfile, "w") as outfile:
+	with codecs.open(outfile, "w", encoding='utf-8') as outfile:
 		csvwriter = csv.writer(outfile)
 		filecontents = open(infile) #restart stream
 
