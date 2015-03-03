@@ -44,7 +44,7 @@ def map(k, d, v, cx):
 
     tour_seen = "none"
     
-    if (not 'toolbars'  in ui and not "menuBarEnabled" in ui["toolbars"]): #remove weird incomplete cases
+    if (not hasattr(ui, 'toolbars') and not "menuBarEnabled" in ui["toolbars"]): #remove weird incomplete cases
       return
     else:
         toolbars = ui["toolbars"]
